@@ -1,1 +1,88 @@
 /* Other rules */
+* {
+  box-sizing: border-box;
+  --main-color: #202020;
+}
+
+/* Header */
+
+header {
+  background-color: var(--main-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85vw;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+header img {
+  width: 130px;
+  cursor: pointer;
+}
+
+header form {
+  width: 50%;
+
+  text-align: center;
+}
+
+header form input {
+  width: 60%;
+  height: 5vh;
+  padding: 10px;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav button {
+  background-color: #202020;
+  border: 1px solid #202020;
+  color: white;
+  padding: 15px;
+  font-size: 2vw;
+  cursor: pointer;
+}
+
+header nav button:last-child {
+  padding-right: 0px;
+}
+
+/* Home */
+
+.main-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Item */
+
+.item {
+  margin-top: 30px;
+  width: calc((100% / 4) - 60px);
+  background-color: var(--main-color);
+}
+
+.item img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.item-info p {
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: 700;
+}

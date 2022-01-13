@@ -9,12 +9,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
+  const [dataSearch, setDataSearch] = useState("");
+
   return (
     <Router>
-      <Header />
+      <Header setDataSearch={setDataSearch} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/comics" element={<Comics />} />
+        <Route path="/" element={<Home dataSearch={dataSearch} />} />
+        <Route path="/comics" element={<Comics dataSearch={dataSearch} />} />
         <Route path="/character" element={<Character />} />
       </Routes>
     </Router>
