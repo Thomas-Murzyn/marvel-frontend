@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dataSearch={dataSearch} />} />
         <Route path="/comics" element={<Comics dataSearch={dataSearch} />} />
-        <Route path="/character" element={<Character />} />
+        <Route path="/character/:id" element={<Character />} />
       </Routes>
     </Router>
   );

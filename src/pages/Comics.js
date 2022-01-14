@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import axios from "axios";
 import Item from "./items/Item";
 
@@ -38,7 +37,7 @@ const Comics = ({ dataSearch }) => {
             key={index}
             picture={elem.thumbnail}
             name={elem.title}
-            id={elem.id}
+            id={elem._id}
             description={elem.description}
           />
         );

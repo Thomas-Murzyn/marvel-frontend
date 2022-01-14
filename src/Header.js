@@ -6,10 +6,19 @@ const Header = ({ setDataSearch }) => {
   const [data, setData] = useState("");
 
   const navigate = useNavigate();
+  let currentRoute = window.location.href;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDataSearch(data);
+    if (
+      currentRoute === "http://localhost:3000/" ||
+      currentRoute === "http://localhost:3000/comics"
+    ) {
+      setDataSearch(data);
+    } else {
+      navigate("/");
+      setDataSearch(data);
+    }
   };
 
   return (

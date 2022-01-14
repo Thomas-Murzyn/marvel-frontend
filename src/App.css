@@ -1,7 +1,28 @@
-/* Other rules */
+/* General rules */
 * {
   box-sizing: border-box;
   --main-color: #202020;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+
+body,
+button,
+input {
+  font-family: "Bangers", cursive;
+}
+
+input::placeholder {
+  color: var(--main-color);
+}
+
+.main-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* Header */
@@ -54,35 +75,81 @@ header nav button:last-child {
   padding-right: 0px;
 }
 
-/* Home */
-
-.main-container {
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Item */
+/*Component Item */
 
 .item {
+  position: relative;
   margin-top: 30px;
   width: calc((100% / 4) - 60px);
   background-color: var(--main-color);
+  border: solid var(--main-color);
+  border-color: var(--main-color);
+  border-width: 3px 4px 3px 5px;
+  border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(2deg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
 }
 
 .item img {
   width: 100%;
   height: 50vh;
   object-fit: cover;
+  border-width: 3px 4px 3px 5px;
+  border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(2deg);
 }
 
-.item-info p {
+.item-info {
+  position: absolute;
+  bottom: 40px;
   color: white;
-  padding: 10px 0;
+  width: 100%;
   text-align: center;
   font-size: 1.5vw;
   font-weight: 700;
+  background-color: var(--main-color);
+  border: solid var(--main-color);
+  border-color: var(--main-color);
+  border-width: 3px 4px 3px 5px;
+  border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(2deg);
+}
+
+.view {
+  display: inherit;
+}
+
+.hide {
+  display: none;
+}
+
+/* Page  Character */
+
+.character-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+}
+
+.character-info-desc {
+  width: 50%;
+  background-color: var(--main-color);
+  color: white;
+  padding: 20px;
+  border-width: 5px 3px 3px 5px;
+  border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
+  transform: rotate(2deg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.character-info-desc h4 {
+  font-size: 3vw;
+}
+
+.character-info-desc p {
+  font-size: 2vw;
+  padding: 20px 0;
 }
