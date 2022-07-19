@@ -70,7 +70,7 @@ function SearchResultModal({
           }}
         >
           {results.results.map((result) => {
-            return <SearchResultItem name={result.name} />;
+            return <SearchResultItem result={result} />;
           })}
         </div>
       </div>
