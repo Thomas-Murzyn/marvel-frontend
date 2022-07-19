@@ -1,12 +1,34 @@
 import logo from "./assets/logo.png";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const Header = ({ setDataSearch }) => {
+const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
+  const searchRef = useRef();
   const [data, setData] = useState("");
 
   const navigate = useNavigate();
   let currentRoute = window.location.href;
+
+  const getPosition = () => {
+    const x = searchRef.current.offsetLeft;
+    setX(x);
+  };
+
+  useEffect(() => {
+    if (dataSearch === "") {
+      setData("");
+    }
+  }, [dataSearch]);
+
+  useEffect(() => {
+    getPosition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", getPosition);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,10 +36,10 @@ const Header = ({ setDataSearch }) => {
       currentRoute === "http://localhost:3000/" ||
       currentRoute === "http://localhost:3000/comics"
     ) {
-      setDataSearch(data);
+      setValidateData(data);
     } else {
+      setValidateData(data);
       navigate("/");
-      setDataSearch(data);
     }
   };
 
@@ -35,7 +57,9 @@ const Header = ({ setDataSearch }) => {
         />
         <form onSubmit={handleSubmit}>
           <input
+            ref={searchRef}
             onChange={(e) => {
+              setDataSearch(e.target.value);
               setData(e.target.value);
             }}
             type="text"
@@ -48,6 +72,7 @@ const Header = ({ setDataSearch }) => {
             onClick={() => {
               setData("");
               setDataSearch("");
+              setValidateData("");
               navigate("/");
             }}
           >
@@ -57,6 +82,7 @@ const Header = ({ setDataSearch }) => {
             onClick={() => {
               setData("");
               setDataSearch("");
+              setValidateData("");
               navigate("/comics");
             }}
           >

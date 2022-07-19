@@ -17,6 +17,7 @@ input::placeholder {
 }
 
 .main-container {
+  position: relative;
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -152,4 +153,22 @@ header nav button:last-child {
 .character-info-desc p {
   font-size: 2vw;
   padding: 20px 0;
+}
+
+/* SearchResultModal */
+.search-result-modal-container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(102, 102, 102, 0.5);
+}
+
+.search-result-item {
+  padding: 10px 5px;
+}
+
+.search-result-item:hover {
+  background-color: #ec1c23;
+  color: white;
+  cursor: pointer;
 }
