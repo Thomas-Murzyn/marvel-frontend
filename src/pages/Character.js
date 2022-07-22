@@ -2,8 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Item from "./items/Item";
+import SearchResultModal from "./items/SearchResultModal";
 
-const Character = () => {
+const Character = ({
+  isModalActive,
+  setIsModalActive,
+  validateData,
+  x,
+  dataSearch,
+  setDataSearch,
+}) => {
   const [characterData, setCharacterData] = useState(null);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -63,6 +71,14 @@ const Character = () => {
           />
         );
       })}
+
+      <SearchResultModal
+        isModalActive={isModalActive}
+        setIsModalActive={setIsModalActive}
+        dataSearch={dataSearch}
+        setDataSearch={setDataSearch}
+        x={x}
+      />
     </div>
   ) : (
     <div>Downloading</div>

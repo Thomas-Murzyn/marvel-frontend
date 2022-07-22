@@ -8,7 +8,10 @@ function SearchResultItem({ result }) {
   return (
     <div
       onClick={() => {
-        if (currentRoute === "http://localhost:3000/") {
+        if (
+          currentRoute === "http://localhost:3000/" ||
+          "http://localhost:3000/character/:id"
+        ) {
           navigate(`/character/${result._id}`);
         }
       }}

@@ -11,6 +11,7 @@ import { useState } from "react";
 function App() {
   const [dataSearch, setDataSearch] = useState("");
   const [validateData, setValidateData] = useState("");
+  console.log("🚀 ~ file: App.js ~ line 14 ~ App ~ validateData", validateData);
   const [x, setX] = useState();
   const [isModalActive, setIsModalActive] = useState(false);
 
@@ -37,7 +38,19 @@ function App() {
           }
         />
         <Route path="/comics" element={<Comics dataSearch={dataSearch} />} />
-        <Route path="/character/:id" element={<Character />} />
+        <Route
+          path="/character/:id"
+          element={
+            <Character
+              isModalActive={isModalActive}
+              setIsModalActive={setIsModalActive}
+              validateData={validateData}
+              x={x}
+              dataSearch={dataSearch}
+              setDataSearch={setDataSearch}
+            />
+          }
+        />
       </Routes>
     </Router>
   );

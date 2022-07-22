@@ -10,10 +10,6 @@ function SearchResultModal({
   setDataSearch,
 }) {
   const [results, setResults] = useState(null);
-  console.log(
-    "🚀 ~ file: SearchResultModal.js ~ line 7 ~ SearchResultModal ~ results",
-    results
-  );
 
   const ref = useRef();
 
