@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function SearchResultItem({ result }) {
   const navigate = useNavigate();
-  const currentRoute = window.location.href;
+  let currentRoute = window.location.href;
 
   return (
     <div
@@ -17,7 +17,9 @@ function SearchResultItem({ result }) {
       }}
       className="search-result-item"
     >
-      {result.name}
+      {currentRoute !== "http://localhost:3000/comics"
+        ? result.name
+        : result.title}
     </div>
   );
 }

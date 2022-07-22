@@ -7,7 +7,6 @@ import SearchResultModal from "./items/SearchResultModal";
 const Character = ({
   isModalActive,
   setIsModalActive,
-  validateData,
   x,
   dataSearch,
   setDataSearch,

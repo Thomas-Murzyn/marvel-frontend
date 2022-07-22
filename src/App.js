@@ -37,14 +37,25 @@ function App() {
             />
           }
         />
-        <Route path="/comics" element={<Comics dataSearch={dataSearch} />} />
+        <Route
+          path="/comics"
+          element={
+            <Comics
+              validateData={validateData}
+              isModalActive={isModalActive}
+              setIsModalActive={setIsModalActive}
+              x={x}
+              dataSearch={dataSearch}
+              setDataSearch={setDataSearch}
+            />
+          }
+        />
         <Route
           path="/character/:id"
           element={
             <Character
               isModalActive={isModalActive}
               setIsModalActive={setIsModalActive}
-              validateData={validateData}
               x={x}
               dataSearch={dataSearch}
               setDataSearch={setDataSearch}

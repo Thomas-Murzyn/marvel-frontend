@@ -49,6 +49,7 @@ const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
         <img
           onClick={() => {
             setDataSearch("");
+            setValidateData("");
             setData("");
             navigate("/");
           }}
@@ -63,7 +64,11 @@ const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
               setData(e.target.value);
             }}
             type="text"
-            placeholder="Search a character"
+            placeholder={
+              currentRoute !== "http://localhost:3000/comics"
+                ? "Search a character"
+                : "Search comics"
+            }
             value={data}
           />
         </form>

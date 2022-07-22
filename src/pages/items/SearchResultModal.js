@@ -12,16 +12,22 @@ function SearchResultModal({
   const [results, setResults] = useState(null);
 
   const ref = useRef();
+  let currentRoute = window.location.href;
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:4000/character/name/${dataSearch}`
+        `http://localhost:4000/${
+          currentRoute !== "http://localhost:3000/comics"
+            ? "character/name"
+            : "comics/title"
+        }/${dataSearch}`
       );
 
       if (response) {
         setIsModalActive(true);
         setResults(response.data);
+        console.log(response.data);
       }
     };
     if (dataSearch.length > 3) {
@@ -66,7 +72,7 @@ function SearchResultModal({
           }}
         >
           {results.results.map((result) => {
-            return <SearchResultItem result={result} />;
+            return <SearchResultItem key={result._id} result={result} />;
           })}
         </div>
       </div>

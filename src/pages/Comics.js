@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Item from "./items/Item";
+import SearchResultModal from "./items/SearchResultModal";
 
-const Comics = ({ dataSearch }) => {
+const Comics = ({
+  isModalActive,
+  setIsModalActive,
+  x,
+  dataSearch,
+  setDataSearch,
+  validateData,
+}) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (dataSearch !== "") {
+        if (validateData !== "") {
           const response = await axios.get(
-            `http://localhost:4000/comics/title/${dataSearch}`
+            `http://localhost:4000/comics/title/${validateData}`
           );
 
           setData(response.data);
@@ -27,7 +35,7 @@ const Comics = ({ dataSearch }) => {
       }
     };
     fetchData();
-  }, [dataSearch]);
+  }, [validateData]);
 
   return isLoading ? (
     <div className="main-container">
@@ -42,6 +50,13 @@ const Comics = ({ dataSearch }) => {
           />
         );
       })}
+      <SearchResultModal
+        isModalActive={isModalActive}
+        setIsModalActive={setIsModalActive}
+        dataSearch={dataSearch}
+        setDataSearch={setDataSearch}
+        x={x}
+      />
     </div>
   ) : (
     <div>Loading ...</div>
