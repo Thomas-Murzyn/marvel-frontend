@@ -8,12 +8,16 @@ function SearchResultItem({ result }) {
   return (
     <div
       onClick={() => {
-        if (
-          currentRoute === "http://localhost:3000/" ||
-          "http://localhost:3000/character/:id"
-        ) {
-          navigate(`/character/${result._id}`);
-        }
+        currentRoute !== "http://localhost:3000/comics"
+          ? navigate(`/character/${result._id}`)
+          : navigate(`/comic`, {
+              state: {
+                id: result.id,
+                name: result.title,
+                picture: result.thumbnail,
+                description: result.description,
+              },
+            });
       }}
       className="search-result-item"
     >

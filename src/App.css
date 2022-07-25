@@ -125,6 +125,15 @@ header nav button:last-child {
   display: none;
 }
 
+/* Page Comic */
+
+.comic-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+}
+
 /* Page  Character */
 
 .character-container {
