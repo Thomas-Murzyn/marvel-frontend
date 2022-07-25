@@ -37,7 +37,9 @@ const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
       currentRoute === "http://localhost:3000/comics"
     ) {
       setValidateData(data);
+      setDataSearch("");
     } else {
+      setDataSearch("");
       setValidateData(data);
       navigate("/");
     }

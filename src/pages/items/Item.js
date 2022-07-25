@@ -7,10 +7,6 @@ const Item = ({ picture, name, id, description }) => {
   const navigate = useNavigate();
   let currentRoute = window.location.href;
 
-  const toComic = () => {
-    navigate("/comic", { state: { id: 1, name: "sabaoon" } });
-  };
-
   return (
     <div
       onMouseEnter={() => setIsActive(true)}

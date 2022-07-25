@@ -28,7 +28,7 @@ const Home = ({
           const response = await axios.get(`http://localhost:4000/home`);
 
           setData(response.data);
-          console.log(response.data);
+
           setIsLoading(true);
         }
       } catch (error) {

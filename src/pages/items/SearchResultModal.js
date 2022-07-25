@@ -27,7 +27,6 @@ function SearchResultModal({
       if (response) {
         setIsModalActive(true);
         setResults(response.data);
-        console.log(response.data);
       }
     };
     if (dataSearch.length > 3) {
@@ -72,7 +71,13 @@ function SearchResultModal({
           }}
         >
           {results.results.map((result) => {
-            return <SearchResultItem key={result._id} result={result} />;
+            return (
+              <SearchResultItem
+                key={result._id}
+                result={result}
+                setDataSearch={setDataSearch}
+              />
+            );
           })}
         </div>
       </div>
