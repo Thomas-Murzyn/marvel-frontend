@@ -12,12 +12,9 @@ const Character = ({
   setDataSearch,
 }) => {
   const [characterData, setCharacterData] = useState(null);
-  console.log(
-    "🚀 ~ file: Character.js ~ line 15 ~ characterData",
-    characterData
-  );
+
   const [data, setData] = useState(null);
-  console.log("🚀 ~ file: Character.js ~ line 20 ~ data", data);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const { id } = useParams();
@@ -47,6 +44,7 @@ const Character = ({
     <div className="main-container">
       <div className="character-container">
         <Item
+          isNavigate={false}
           key={characterData._id}
           picture={characterData.thumbnail}
           name={characterData.name}
@@ -67,6 +65,7 @@ const Character = ({
       {data.comics.map((elem, index) => {
         return (
           <Item
+            isNavigate={false}
             key={index}
             picture={elem.thumbnail}
             name={elem.title}

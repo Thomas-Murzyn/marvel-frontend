@@ -57,6 +57,7 @@ const Home = ({
         {data.results.map((elem, index) => {
           return (
             <Item
+              isNavigate={true}
               key={index}
               picture={elem.thumbnail}
               name={elem.name}

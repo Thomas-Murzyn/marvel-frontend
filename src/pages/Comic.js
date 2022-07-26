@@ -19,6 +19,7 @@ const Comic = ({
     <div className="comic-container">
       <div className="character-container">
         <Item
+          isNavigate={false}
           key={id}
           picture={picture}
           name={name}
