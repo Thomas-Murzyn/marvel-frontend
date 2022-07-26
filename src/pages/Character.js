@@ -12,7 +12,12 @@ const Character = ({
   setDataSearch,
 }) => {
   const [characterData, setCharacterData] = useState(null);
+  console.log(
+    "🚀 ~ file: Character.js ~ line 15 ~ characterData",
+    characterData
+  );
   const [data, setData] = useState(null);
+  console.log("🚀 ~ file: Character.js ~ line 20 ~ data", data);
   const [isLoading, setIsLoading] = useState(false);
 
   const { id } = useParams();
@@ -25,7 +30,7 @@ const Character = ({
         );
 
         const secondResponse = await axios.get(
-          `http://localhost:4000/comics/${id}`
+          `http://localhost:4000/comics/id/${id}`
         );
 
         setCharacterData(firstResponse.data);

@@ -21,7 +21,7 @@ function SearchResultModal({
           currentRoute !== "http://localhost:3000/comics"
             ? "character/name"
             : "comics/title"
-        }/${dataSearch}`
+        }/${dataSearch}/0`
       );
 
       if (response) {

@@ -181,3 +181,16 @@ header nav button:last-child {
   color: white;
   cursor: pointer;
 }
+
+.paginate-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 50%;
+  font-size: 1.5em;
+}
+
+.paginate-container li {
+  margin-right: 20px;
+  cursor: pointer;
+}

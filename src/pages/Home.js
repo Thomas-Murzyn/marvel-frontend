@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Item from "./items/Item";
 import SearchResultModal from "./items/SearchResultModal";
+import ReactPaginate from "react-paginate";
 
 const Home = ({
   dataSearch,
@@ -12,23 +13,31 @@ const Home = ({
   setDataSearch,
 }) => {
   const [data, setData] = useState(null);
+
   const [isLoading, setIsLoading] = useState(false);
+  const [pageCount, setPageCount] = useState(0);
+  const [skip, setSkip] = useState(0);
+  const itemsPerPage = 28;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (validateData) {
           const response = await axios.get(
-            `http://localhost:4000/character/name/${validateData}`
+            `http://localhost:4000/character/name/${validateData}/${skip}`
           );
 
           setData(response.data);
+          setPageCount(Math.ceil(response.data.count / itemsPerPage));
           setIsLoading(true);
         } else {
-          const response = await axios.get(`http://localhost:4000/home`);
+          const response = await axios.get(
+            `http://localhost:4000/home/${skip}`
+          );
 
           setData(response.data);
 
+          setPageCount(Math.ceil(response.data.count / itemsPerPage));
           setIsLoading(true);
         }
       } catch (error) {
@@ -36,7 +45,11 @@ const Home = ({
       }
     };
     fetchData();
-  }, [validateData]);
+  }, [validateData, skip]);
+
+  const handlePageClick = (event) => {
+    setSkip(event.selected * itemsPerPage);
+  };
 
   return isLoading ? (
     <>
@@ -52,6 +65,7 @@ const Home = ({
             />
           );
         })}
+
         <SearchResultModal
           isModalActive={isModalActive}
           setIsModalActive={setIsModalActive}
@@ -60,6 +74,16 @@ const Home = ({
           x={x}
         />
       </div>
+      <ReactPaginate
+        className="paginate-container"
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+      />
     </>
   ) : (
     <div>Loading ...</div>
