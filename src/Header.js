@@ -33,8 +33,8 @@ const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      currentRoute === "http://localhost:3000/" ||
-      currentRoute === "http://localhost:3000/comics"
+      currentRoute === "https://marvel-by-tm.netlify.app/" ||
+      currentRoute === "https://marvel-by-tm.netlify.app/comics"
     ) {
       setValidateData(data);
       setDataSearch("");
@@ -67,7 +67,7 @@ const Header = ({ setDataSearch, setX, setValidateData, dataSearch }) => {
             }}
             type="text"
             placeholder={
-              currentRoute !== "http://localhost:3000/comics"
+              currentRoute !== "https://marvel-by-tm.netlify.app/comics"
                 ? "Search a character"
                 : "Search comics"
             }

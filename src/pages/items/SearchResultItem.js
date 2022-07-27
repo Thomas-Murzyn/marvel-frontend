@@ -8,7 +8,7 @@ function SearchResultItem({ result, setDataSearch }) {
   return (
     <div
       onClick={() => {
-        if (currentRoute !== "http://localhost:3000/comics") {
+        if (currentRoute !== "https://marvel-by-tm.netlify.app/comics") {
           navigate(`/character/${result._id}`);
           setDataSearch("");
         } else {
@@ -25,7 +25,7 @@ function SearchResultItem({ result, setDataSearch }) {
       }}
       className="search-result-item"
     >
-      {currentRoute !== "http://localhost:3000/comics"
+      {currentRoute !== "https://marvel-by-tm.netlify.app/comics"
         ? result.name
         : result.title}
     </div>

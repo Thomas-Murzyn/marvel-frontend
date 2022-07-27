@@ -14,7 +14,7 @@ const Item = ({ picture, name, id, description, isNavigate }) => {
       onMouseLeave={() => setIsActive(false)}
       onClick={() => {
         if (isNavigate) {
-          if (currentRoute === "http://localhost:3000/comics") {
+          if (currentRoute === "https://marvel-by-tm.netlify.app/comics") {
             navigate(`/comic`, {
               state: { id: id, name: name, picture: picture, description },
             });

@@ -18,7 +18,7 @@ function SearchResultModal({
     const fetchData = async () => {
       const response = await axios.get(
         `https://marvel-backend-by-tm.herokuapp.com/${
-          currentRoute !== "http://localhost:3000/comics"
+          currentRoute !== "https://marvel-by-tm.netlify.app/comics"
             ? "character/name"
             : "comics/title"
         }/${dataSearch}/0`
