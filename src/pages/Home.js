@@ -84,6 +84,10 @@ const Home = ({
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
+        pageLinkClassName="page-num"
+        activeLinkClassName="active"
+        nextLinkClassName="page-num"
+        previousLinkClassName="page-num"
       />
     </>
   ) : (

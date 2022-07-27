@@ -190,7 +190,18 @@ header nav button:last-child {
   font-size: 1.5em;
 }
 
-.paginate-container li {
-  margin-right: 20px;
+.page-num {
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 10px;
+}
+
+.page-num:hover {
+  background-color: red;
+  color: white;
+}
+
+.active {
+  background-color: red;
+  color: white;
 }
