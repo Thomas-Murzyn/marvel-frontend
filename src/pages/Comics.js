@@ -23,7 +23,7 @@ const Comics = ({
       try {
         if (validateData !== "") {
           const response = await axios.get(
-            `http://localhost:4000/comics/title/${validateData}/${skip}`
+            `https://marvel-backend-by-tm.herokuapp.com/comics/title/${validateData}/${skip}`
           );
 
           setData(response.data);
@@ -31,7 +31,7 @@ const Comics = ({
           setIsLoading(true);
         } else {
           const response = await axios.get(
-            `http://localhost:4000/comics/${skip}`
+            `https://marvel-backend-by-tm.herokuapp.com/comics/${skip}`
           );
 
           setData(response.data);

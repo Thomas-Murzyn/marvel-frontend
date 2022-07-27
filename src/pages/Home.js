@@ -24,7 +24,7 @@ const Home = ({
       try {
         if (validateData) {
           const response = await axios.get(
-            `http://localhost:4000/character/name/${validateData}/${skip}`
+            `https://marvel-backend-by-tm.herokuapp.com/character/name/${validateData}/${skip}`
           );
 
           setData(response.data);
@@ -32,7 +32,7 @@ const Home = ({
           setIsLoading(true);
         } else {
           const response = await axios.get(
-            `http://localhost:4000/home/${skip}`
+            `https://marvel-backend-by-tm.herokuapp.com/home/${skip}`
           );
 
           setData(response.data);

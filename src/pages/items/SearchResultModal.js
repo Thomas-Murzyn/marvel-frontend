@@ -17,7 +17,7 @@ function SearchResultModal({
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:4000/${
+        `https://marvel-backend-by-tm.herokuapp.com/${
           currentRoute !== "http://localhost:3000/comics"
             ? "character/name"
             : "comics/title"
